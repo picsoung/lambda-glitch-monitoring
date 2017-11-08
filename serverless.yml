@@ -1,0 +1,14 @@
+service: glitchQuestionsMonitoring
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+functions:
+  glitchQuestionsMonitoring:
+    handler: handler.glitchQuestionsMonitoring
+    events:
+      - schedule: rate(1 minute)
+    environment:
+      VERIFICATION_TOKEN: "YOUR_OWN_VERIFICATION_TOKEN" #use it to check on your app that the request is coming from this function
+      GLITCH_APP : "YOUR_OWN_APP_URL"
